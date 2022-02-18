@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row">
 
 
     <section class="col-3">
-
-      <h5 class="text-warning ml-3">Sort</h5>
-      <select class="custom-select mb-3" (change)="onSortSelected($event.target.value)">
+      <ng-container *ngIf="types && brands">
+      
+      <h5 class="text-warning ml-3 mt-4 mb-3">Sort</h5>
+      <select class="custom-select mb-4" (change)="onSortSelected($event.target.value)">
         <option *ngFor="let sort of sortOptions"
-            [value]="sort.value"
-        >
+            [value]="sort.value">
             {{sort.name}}
         </option>
       </select>
@@ -18,8 +18,7 @@
         <li class="list-group-item" *ngFor="let brand of brands"
             [class.active]="brand.id === shopParams.brandId"
             [value]="brand.id"
-            (click)="onBrandSelected(brand.id)"
-        >
+            (click)="onBrandSelected(brand.id)">
             {{brand.name}}
         </li>
       </ul>
@@ -29,12 +28,12 @@
         <li class="list-group-item" *ngFor="let type of types"
             [class.active]="type.id === shopParams.typeId"
             [value]="type.id"
-            (click)="onTypeSelected(type.id)"
-        >
+            (click)="onTypeSelected(type.id)">
             {{type.name}}
         </li>
       </ul>
 
+      </ng-container>
     </section>
 
 
@@ -45,10 +44,10 @@
         <app-paging-header
           [totalCount]="totalCount"
           [pageNumber]="shopParams.pageNumber"
-          [pageSize]="shopParams.pageSize"
-        ></app-paging-header>
+          [pageSize]="shopParams.pageSize">
+        </app-paging-header>
 
-        <div class="form-inline mt-2">
+        <div class="form-inline" *ngIf="products">
           <input (keyup.enter)="onSearch()" class="form-control mr-2" #search style="width: 300px" placeholder="Search" type="text">
           <button (click)="onSearch()" class="btn btn-outline-primary my-2">Search</button>
           <button (click)="onReset()" class="btn btn-outline-success ml-2 my-2">Reset</button>
@@ -66,8 +65,8 @@
         <app-pager
           [pageSize]="shopParams.pageSize"
           [totalCount]="totalCount"
-          (pageChanged)="onPageChanged($event)"
-        ></app-pager>
+          (pageChanged)="onPageChanged($event)">
+        </app-pager>
       </div>
 
     </section>
