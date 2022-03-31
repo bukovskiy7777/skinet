@@ -23,3 +23,18 @@ Here are some of the things we learn about in this course:
 - Accepting payments via Stripe using the new EU standards for 3D secure
 - Publishing the application to Linux
 - Many more things as well
+
+We will learn:
+- .Net Core
+- Angular
+- C# Generics
+- Repository and Unit of Work Pattern
+- Specification Pattern
+- Caching
+- Angular Lazy loading
+- Angular Routing
+- Angular Reactive Forms
+- Angular Creating a MultiStep form wizard
+- Accepting payments using Stripe
+- Angular Re-usable form components
+- Angular validation and async validation
