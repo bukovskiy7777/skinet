@@ -38,3 +38,5 @@ We will learn:
 - Accepting payments using Stripe
 - Angular Re-usable form components
 - Angular validation and async validation
+- Redis
+- Docker
